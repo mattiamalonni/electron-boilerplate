@@ -1,0 +1,34 @@
+// @see - https://www.electron.build/configuration/configuration
+{
+  $schema: 'https://raw.githubusercontent.com/electron-userland/electron-builder/master/packages/app-builder-lib/scheme.json',
+  appId: 'com.mattiamalonni.electron-boilerplate',
+  asar: true,
+  productName: 'Electron Boilerplate',
+  directories: {
+    output: 'release/${version}',
+  },
+  files: ['dist', 'dist-electron'],
+  mac: {
+    target: ['dmg'],
+    artifactName: '${productName}-${version}.${ext}',
+  },
+  win: {
+    target: [
+      {
+        target: 'nsis',
+        arch: ['x64'],
+      },
+    ],
+    artifactName: '${productName}-${version}-Setup.${ext}',
+  },
+  nsis: {
+    oneClick: false,
+    perMachine: false,
+    allowToChangeInstallationDirectory: true,
+    deleteAppDataOnUninstall: true,
+  },
+  linux: {
+    target: ['AppImage'],
+    artifactName: '${productName}-${version}.${ext}',
+  },
+}

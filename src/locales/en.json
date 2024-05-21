@@ -1,0 +1,14 @@
+{
+  "loading": "loading",
+  "containers": {
+    "home": {
+      "title": "Home",
+      "users": "Users"
+    }
+  },
+  "components": {
+    "navbar": {
+      "home": "Home"
+    }
+  }
+}

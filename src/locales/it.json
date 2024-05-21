@@ -1,0 +1,14 @@
+{
+  "loading": "caricamento",
+  "containers": {
+    "home": {
+      "title": "Home",
+      "users": "Utenti"
+    }
+  },
+  "components": {
+    "navbar": {
+      "home": "Home"
+    }
+  }
+}
