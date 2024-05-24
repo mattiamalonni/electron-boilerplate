@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, screen } from 'electron';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
@@ -13,9 +13,11 @@ export const RENDERER_DIST = path.join(process.env.APP_ROOT, 'dist');
 process.env.VITE_PUBLIC = VITE_DEV_SERVER_URL ? path.join(process.env.APP_ROOT, 'public') : RENDERER_DIST;
 
 const createMainWindow = () => {
+  const primaryDisplay = screen.getPrimaryDisplay();
+
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: parseInt(primaryDisplay.size.width * 0.8),
+    height: parseInt(primaryDisplay.size.height * 0.8),
     webPreferences: {
       preload: path.join(__dirname, 'preload.mjs'),
     },
